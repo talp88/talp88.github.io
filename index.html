@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPOSKLI | Official Magnetic Wireless Chargers - Phone & Watch Charging Showcase</title>
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --card-bg: #141418;
+            --text-main: #f5f5f7;
+            --text-muted: #86868b;
+            --accent: #2997ff;
+            --accent-hover: #0071e3;
+            --border-color: #26262b;
+            --badge-bg: rgba(41, 151, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        .header-email {
+            background: rgba(41, 151, 255, 0.12);
+            color: var(--accent) !important;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(41, 151, 255, 0.3);
+            font-size: 13px !important;
+        }
+
+        .hero {
+            position: relative;
+            padding: 80px 5%;
+            text-align: center;
+            background: radial-gradient(circle at 50% 20%, #1a2333 0%, var(--bg-dark) 70%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(41, 151, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, #ffffff, #a1c4fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 18px;
+            max-width: 720px;
+            margin: 0 auto 36px;
+        }
+
+        .hero-showcase {
+            max-width: 960px;
+            margin: 0 auto;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+            background: #111;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-showcase-img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 40px 5% 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px 5% 80px;
+        }
+
+        .section-header {
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .section-header span {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 28px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+            border-color: rgba(41, 151, 255, 0.5);
+        }
+
+        .img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 270px;
+            background: #1c1c22;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .img-wrapper img {
+            transform: scale(1.06);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .product-tag.hot {
+            background: linear-gradient(135deg, #2997ff, #005bb5);
+            border: none;
+        }
+
+        .card-body {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-label {
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .product-title {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            flex: 1;
+        }
+
+        .specs-list {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding-top: 14px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .spec-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: #d1d1d6;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+        .features-banner {
+            background: #101014;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 60px 5%;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        footer {
+            padding: 48px 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        footer .contact-box {
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-size: 15px;
+        }
+
+        footer .email-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer .email-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero-showcase { grid-template-columns: 1fr; }
+            .hero-showcase-img { height: 240px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">KPOSKLI <span>CHARGING</span></a>
+        <nav>
+            <ul>
+                <li><a href="#all" class="active">All Wireless Chargers</a></li>
+                <li><a href="#all" onclick="filterProducts('combo', document.querySelectorAll('.filter-btn')[1])">Phone & Watch Combo</a></li>
+                <li><a href="#all" onclick="filterProducts('phone', document.querySelectorAll('.filter-btn')[2])">Magnetic Phone Chargers</a></li>
+                <li><a href="#all" onclick="filterProducts('watch', document.querySelectorAll('.filter-btn')[3])">Watch Chargers</a></li>
+                <li><a href="mailto:support@kposkli.com" class="header-email">✉️ support@kposkli.com</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-badge">Next-Gen Qi2.2 & MagSafe Fast Wireless Charging</div>
+        <h1>Snap. Charge. Power Everything.</h1>
+        <p>Engineered for effortless magnetic alignment and rapid wireless power delivery for your iPhone, Apple Watch, and wireless earbuds—at home or on the go.</p>
+        <div class="hero-showcase">
+            <img src="https://images.unsplash.com/photo-1615526675159-e248c3021d3f?auto=format&fit=crop&w=900&q=80" alt="Magnetic Phone Wireless Charger" class="hero-showcase-img">
+            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=80" alt="Smartwatch Wireless Charger" class="hero-showcase-img">
+        </div>
+    </section>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterProducts('all', this)">All Wireless Chargers (6)</button>
+        <button class="filter-btn" onclick="filterProducts('combo', this)">Phone + Watch Multi-Chargers (3)</button>
+        <button class="filter-btn" onclick="filterProducts('phone', this)">Magnetic Phone Pads & Stands (2)</button>
+        <button class="filter-btn" onclick="filterProducts('watch', this)">Portable Watch Chargers (1)</button>
+    </div>
+
+    <main class="container" id="all">
+        <div class="section-header">
+            <div>
+                <h2>Wireless Charger Collection</h2>
+                <span>Official product showcase for magnetic wireless charging stations, foldable travel pads, and watch chargers</span>
+            </div>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+
+            <!-- ================= 产品 1 (型号: Y68S) ================= -->
+            <article class="product-card" data-category="combo">
+                <div class="img-wrapper">
+                    <span class="product-tag hot">Flagship · Phone + Watch</span>
+                    <img src="https://images.unsplash.com/photo-1622445275463-afa2ab738c34?auto=format&fit=crop&w=800&q=80" alt="Y68S Dual-Sided Magnetic Wireless Charger">
+                </div>
+                <div class="card-body">
+                    <div class="category-label">Phone & Watch Dual Wireless Charger</div>
+                    <!-- ★ 在这里修改型号和标题 ★ -->
+                    <h3 class="product-title">Model Y68S Dual-Sided Magnetic Charger</h3>
+                    <p class="product-desc">Innovative dual-sided magnetic design. Delivers 15W/25W high-speed magnetic wireless charging for smartphones on the front, with an integrated flip module for Apple Watch and earbuds on the rear.</p>
+                    <div class="specs-list">
+                        <span class="spec-pill">Qi2.2 / 25W Max</span>
+                        <span class="spec-pill">Phone + Watch Sync</span>
+                        <span class="spec-pill">FCC ID: 2BWDU-Y68S</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ================= 产品 2 (型号: V29) ================= -->
+            <article class="product-card" data-category="combo">
+                <div class="img-wrapper">
+                    <span class="product-tag">Desktop Pro · 3-in-1 Stand</span>
+                    <img src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=800&q=80" alt="V29 3-in-1 Magnetic Wireless Charging Stand">
+                </div>
+                <div class="card-body">
+                    <div class="category-label">Phone + Watch + Earbuds 3-in-1</div>
+                    <!-- ★ 在这里修改型号和标题 ★ -->
+                    <h3 class="product-title">Model V29 3-in-1 Magnetic Charging Stand</h3>
+                    <p class="product-desc">Crafted for nightstands and modern workspaces. Features a floating magnetic phone charging pad, dedicated Apple Watch fast-charging puck, and a base wireless charging dock for AirPods.</p>
+                    <div class="specs-list">
+                        <span class="spec-pill">iPhone StandBy Ready</span>
+                        <span class="spec-pill">iWatch Fast Charge</span>
+                        <span class="spec-pill">N52 Neodymium Magnets</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ================= 产品 3 (型号: K30) ================= -->
+            <article class="product-card" data-category="combo">
+                <div class="img-wrapper">
+                    <span class="product-tag">Travel Essential · Foldable</span>
+                    <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=800&q=80" alt="Foldable 3-in-1 Travel Wireless Charger">
+                </div>
+                <div class="card-body">
+                    <div class="category-label">Foldable Phone & Watch Charger</div>
+                    <!-- ★ 在这里修改型号和标题 ★ -->
+                    <h3 class="product-title">Model K30 Pocket Foldable 3-in-1 Charger</h3>
+                    <p class="product-desc">Ultra-compact tri-fold structure unfolds into a complete multi-device charging mat for your phone and smartwatch, and folds down to palm size for effortless business travel.</p>
+                    <div class="specs-list">
+                        <span class="spec-pill">180° Foldable Design</span>
+                        <span class="spec-pill">Pop-Up Watch Module</span>
+                        <span class="spec-pill">Smart Temp Control</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ================= 产品 4 (型号: M15) ================= -->
+            <article class="product-card" data-category="phone">
+                <div class="img-wrapper">
+                    <span class="product-tag">Ultra-Slim · Phone Pad</span>
+                    <img src="https://images.unsplash.com/photo-1615526675159-e248c3021d3f?auto=format&fit=crop&w=800&q=80" alt="25W Ultra-Slim Magnetic Wireless Charger Pad">
+                </div>
+                <div class="card-body">
+                    <div class="category-label">Magnetic Phone Wireless Pad</div>
+                    <!-- ★ 在这里修改型号和标题 ★ -->
+                    <h3 class="product-title">Model M15 25W Ultra-Slim Magnetic Pad</h3>
+                    <p class="product-desc">Only 7mm thin with an aerospace-grade aluminum alloy housing and tempered glass surface. Snaps precisely onto iPhone magnetic coils for low-temperature, uninterrupted gaming and charging.</p>
+                    <div class="specs-list">
+                        <span class="spec-pill">25W Rapid Wireless</span>
+                        <span class="spec-pill">Alloy Heat Dissipation</span>
+                        <span class="spec-pill">Braided Type-C Cable</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ================= 产品 5 (型号: R360) ================= -->
+            <article class="product-card" data-category="phone">
+                <div class="img-wrapper">
+                    <span class="product-tag">360° Rotation · Phone Stand</span>
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="360 Rotating Metal Magnetic Phone Charger">
+                </div>
+                <div class="card-body">
+                    <div class="category-label">Magnetic Phone Charging Mount</div>
+                    <!-- ★ 在这里修改型号和标题 ★ -->
+                    <h3 class="product-title">Model R360 All-Metal Rotating Charger</h3>
+                    <p class="product-desc">Features a 360° mechanical ratcheting swivel base and heavy-duty ring magnet array. Keeps your smartphone securely locked in portrait or landscape mode while delivering 15W fast wireless power.</p>
+                    <div class="specs-list">
+                        <span class="spec-pill">15W Fast Charging</span>
+                        <span class="spec-pill">360° Swivel Base</span>
+                        <span class="spec-pill">One-Hand Snap On</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ================= 产品 6 (型号: W01) ================= -->
+            <article class="product-card" data-category="watch">
+                <div class="img-wrapper">
+                    <span class="product-tag">Watch Exclusive · Pocket Size</span>
+                    <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=80" alt="Mini Portable Apple Watch Wireless Charger">
+                </div>
+                <div class="card-body">
+                    <div class="category-label">Smartwatch Wireless Charger</div>
+                    <!-- ★ 在这里修改型号和标题 ★ -->
+                    <h3 class="product-title">Model W01 Mini USB-C Watch Charger</h3>
+                    <p class="product-desc">Cable-free direct USB-C plug-in magnetic charger tailored for Apple Watch. Plug directly into your laptop, power bank, or wall adapter for instant magnetic watch charging anywhere.</p>
+                    <div class="specs-list">
+                        <span class="spec-pill">For All Apple Watch Series</span>
+                        <span class="spec-pill">3W/5W Magnetic Fast Charge</span>
+                        <span class="spec-pill">Keychain Portable</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <section class="features-banner">
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>⚡ Qi2.2 & MagSafe Compatible</h3>
+                <p>Precision magnetic alignment minimizes power loss and maximizes charging speed for phones and watches.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🛡️ Multi-Protect Safety System</h3>
+                <p>Built-in smart chip provides over-current, over-voltage, temperature control, and Foreign Object Detection (FOD).</p>
+            </div>
+            <div class="feature-item">
+                <h3>🌍 Global Compliance Certified</h3>
+                <p>Tested and certified to meet strict international standards including FCC, UL 2738, CE, RoHS, and PSE.</p>
+            </div>
+            <div class="feature-item">
+                <h3>💬 Dedicated Customer Support</h3>
+                <p>24/7 responsive warranty service, user manual downloads, and technical support via our official email.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="contact-box">
+            <strong>KPOSKLI Official Customer Support & Business Inquiries</strong><br>
+            Email Us: <a href="mailto:support@kposkli.com" class="email-link">support@kposkli.com</a>
+        </div>
+        <p>© 2026 KPOSKLI Electronics. All Rights Reserved. Specialized in Premium Magnetic Wireless Charging Solutions.</p>
+    </footer>
+
+    <script>
+        function filterProducts(category, btnElement) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
